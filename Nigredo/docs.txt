@@ -1,0 +1,8 @@
+https://codeburst.io/build-a-weather-website-in-30-minutes-with-node-js-express-openweather-a317f904897b
+https://www.codementor.io/codeforgeek/build-website-from-scratch-using-expressjs-and-bootstrap-du107sby7
+
+
+Note to self:
+
+Run Node Configuration script in the same directory to install node
+then follow first tutorial link.
