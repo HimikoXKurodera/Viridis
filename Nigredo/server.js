@@ -3,7 +3,9 @@ const app = express();
 const router=express.Router();
 const path = __dirname+'/views/';
 const request = require('request')
+const requestIp = require('request-ip');
 
+const port = process.env.PORT || 80;
 /*
 	Middleware to log the request method
 */
@@ -12,9 +14,21 @@ router.use((req,res,next)=>{
 	next();
 });
 
-/*request('http://ipinfo.io', function(error, res, body) {
+
+router.use((req,res,next)=>{
+	const clientIp = requestIp.getClientIp(req);
+	//console.log(requestIp);
+	console.log("Client ip address is: ");
+	console.log(clientIp);
+	//console.log(req.connection.remoteAddress);
+   	next();
+});
+
+request('http://ipinfo.io', function(error, res, body) {
   console.log(JSON.parse(body))
-})*/
+})
+
+
 /*
 	Route for homepage
 
@@ -92,7 +106,7 @@ app.use("*",(req,res)=>{
 });
 
 
-app.listen(3000,()=>{
-	console.log("Live at Port 3000");
+app.listen(port,()=>{
+	console.log("Live at Port" + port);
 
 });
